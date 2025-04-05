@@ -1,0 +1,184 @@
+*{
+    margin: 0;
+    background: linear-gradient(to right, #19242e, #287ab1);
+    box-sizing: border-box;
+}
+
+/*Header part*/
+.header{
+    width: 100%;
+    height: 28em; /* Fixed height */
+    display: block; /* Ensure it behaves as a block element */
+    position: relative; /* Ensure it doesn't overlap with other elements */
+    overflow: hidden;
+}
+.header h1{
+    color: #fff;
+    font-size: 2rem; /* Responsive font size based on root font size */
+    text-align: center;
+}
+.header img{
+    width: 100%;
+    height: auto;
+    justify-content: center;
+}
+.header nav{
+    display: flex;
+    justify-content: right; /* Align items to the right */
+    align-items: right;
+    background: linear-gradient(to right, red, yellow);
+    height: 25px;
+}
+.header ul {
+    list-style: none;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    background: transparent;
+}
+.header ul li{
+    margin: 0 10px;
+    background: transparent;
+}
+.header ul li a{
+    color: transparent;
+    background: linear-gradient(to right, red, black);
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-decoration: none;
+    font-size: 1.5rem; /* Responsive font size */
+}
+.header ul li a:hover{
+    text-decoration: underline;
+    transition: all 0.3s ease;
+    transform: scale(1.1);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+.header ul li a.active{
+    color: transparent;
+    background: linear-gradient(to right, black, red);
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-decoration: none; /* Remove text-decoration */
+    position: relative; /* Required for pseudo-element */
+}
+
+.header ul li a.active::after {
+    content: ""; /* Add an underline using a pseudo-element */
+    position: absolute;
+    left: 0;
+    bottom: -2px; /* Adjust the position of the underline */
+    width: 100%;
+    height: 4px; /* Thickness of the underline */
+    background: linear-gradient(to right, black, red); /* Match the gradient */
+}
+
+
+/*main section*/
+.main{
+    flex: 1; /* Allow it to grow and fill the available space */
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    width: 100%;
+    background: transparent;
+    margin-top: 1em; /* Add some spacing between .header and .main */
+    margin-bottom: 1em; /*Add some spacing between .main and .footer*/
+    padding: 0.5em; /*Add some padding for better spacing*/
+    position: relative; /* Ensure it stays below the header */
+}
+.noticecontainer{
+    display: relative;
+    width: 100%;
+    background: transparent;
+}
+.noticecontainer h2{
+    color: #fff;
+    font-size: 2rem; /* Responsive font size */
+}
+.noticecontainer ol{
+    list-style: decimal;
+    color: #fff;
+    font-size: 1.4rem;
+    background: transparent;
+}
+.noticecontainer ol li{
+    background: transparent;
+}
+.noticecontainer ol li a{
+    color: #fff;
+    font-size: 1.4rem; /* Responsive font size */
+    text-decoration: none;
+    background: transparent;
+}
+.noticecontainer ol li a:hover{
+    text-decoration: underline;
+    transition: all 0.2s ease-in-out;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+
+
+/*Footer part*/
+.footer {
+    display: block;
+    width: 100%;
+    margin-top: auto; /* Push it to the bottom of the page */
+    height: auto; /* Allow height to adjust based on content */
+    background: rgba(0, 0, 0, 0.9); /* Black background with transparency */
+    position: relative; /* Ensure it stays in its own layer */
+    padding: 0.8em; /* Add padding to ensure content fits inside */
+    z-index: 1; /* Ensure it appears above other elements */
+    overflow: hidden;
+}
+
+.footer p, address {
+    color: #fff;
+    font-size: 1.2rem; /* Responsive font size */
+    text-align: left;
+    margin: 0;
+    padding: 0.5em; /* Add some padding for better spacing */
+    background: transparent; /* Ensure no background overrides the footer */
+}
+
+
+
+/*Media Quaries for Resonsiveness*/
+@media (max-width: 768px){
+    :root {
+        font-size: 14px; /*Smaller font size for tablets */
+    }
+    html,body{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .header{
+        height: 20em;
+    }
+    .main{
+        margin-top: 0.5em;
+    }
+}
+
+@media (max-width:375px){
+    :root{
+        font-size: 12px; /*Smaller font size for mobile screen*/
+    }
+    html,body{
+        height: 100%;
+        flex-direction: column;
+    }
+    .header{
+        height: 18em;
+    }
+    .footer{
+        font-size: 1.2rem;
+    }
+}
+
+
+
+
+
+
